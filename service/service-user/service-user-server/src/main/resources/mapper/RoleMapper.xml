@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kiritor.hshop.serviceuser.dao.RoleDao">
+    <resultMap type="com.kiritor.hshop.serviceuser.model.Role" id="RoleMap">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="roleName" column="role_name" jdbcType="VARCHAR"/>
+        <result property="roleCode" column="role_code" jdbcType="VARCHAR"/>
+        <result property="roleDescription" column="role_description" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <select id="getRoleListByUrl" parameterType="String" resultMap="RoleMap">
+          <![CDATA[
+            select * from sys_role  role,
+              sys_role_permission_relation REL1,
+							sys_permission  per,
+							sys_request_path path,
+							sys_request_path_permission_relation REL2
+            where role.id = REL1.ROLE_ID
+            and   REL1.permission_id = per.id
+            AND   REL2.url_id = PATH.id
+            AND   REL2.permission_id = per.id
+            and   PATH.url = #{url}
+          ]]>
+    </select>
+
+
+    <select id="getRoleListByUserName" parameterType="String" resultMap="RoleMap">
+          <![CDATA[
+            select
+               role.id,
+               role.role_name,
+               role.role_code
+            from sys_role  role,
+              sys_user_role_relation REL1,
+			  sys_user user
+            where role.id = rel1.role_id
+            and   rel1.user_id = user.id
+            and   user.user_name = #{username}
+          ]]>
+    </select>
+</mapper>
