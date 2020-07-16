@@ -43,6 +43,10 @@ public class User implements Serializable {
     private String password;
     @TableField("last_login_time")
     private Date lastLoginTime;
+    @TableField("image")
+    private String image;
+    @TableField("gender")
+    private String gender;
 
     @TableField(value = "enabled", fill = FieldFill.INSERT)
     private Boolean enabled;

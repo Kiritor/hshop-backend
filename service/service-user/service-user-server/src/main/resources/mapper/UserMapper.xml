@@ -4,6 +4,7 @@
     <resultMap type="com.kiritor.hshop.serviceuser.model.User" id="UserMap">
         <result property="id" column="id" jdbcType="INTEGER"/>
         <result property="account" column="account" jdbcType="VARCHAR"/>
+        <result property="image" column="image" jdbcType="BLOB" />
         <result property="userName" column="user_name" jdbcType="VARCHAR"/>
         <result property="password" column="password" jdbcType="VARCHAR"/>
         <result property="lastLoginTime" column="last_login_time" jdbcType="TIMESTAMP"/>
@@ -15,6 +16,7 @@
         <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
         <result property="createUser" column="create_user" jdbcType="INTEGER"/>
         <result property="updateUser" column="update_user" jdbcType="INTEGER"/>
+        <result property="gender" column="gender" jdbcType="VARCHAR" />
     </resultMap>
 
     <select id="getUserList" resultMap="UserMap">
@@ -33,4 +35,5 @@
             where user_name =#{username}
           ]]>
     </select>
+
 </mapper>

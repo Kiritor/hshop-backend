@@ -21,4 +21,5 @@ public interface UserService {
     List<User> getUserList();
     User getUserByName(String username);
     int update(User user);
+    User getUserById(int id);
 }

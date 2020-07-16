@@ -52,7 +52,7 @@ public class LoginSuccessHandler implements AuthenticationSuccessHandler {
         // 更新用户last_login_time
         user.setLastLoginTime(new Date());
         userDao.updateById(user);
-
+        user.setImage("");
 
         //设置密码为空
         securityUser.setPassword(null);
@@ -80,7 +80,7 @@ public class LoginSuccessHandler implements AuthenticationSuccessHandler {
             login = false;
         }
         if (login){
-            HttpResponseUitls.toJSONString(response,ResultBody.ok(ResultCode.USER_LOGIN_SUCCESS));
+            HttpResponseUitls.toJSONString(response,ResultBody.ok(ResultCode.USER_LOGIN_SUCCESS,user));
         }else{
             HttpResponseUitls.toJSONString(response,ResultBody.ok(ResultCode.USER_LOGIN_FAIL));
         }

@@ -26,4 +26,5 @@ public interface UserDao  extends BaseMapper<User> {
      * @return
      */
     User getRoleListByUserName(String username);
+
 }
