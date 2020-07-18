@@ -68,7 +68,7 @@ public class ResultBody implements Serializable {
      * @return
      */
     public static ResultBody ok() {
-        return ok(null);
+        return ok(ResultCode.SUCCESS,null);
     }
 
     /**

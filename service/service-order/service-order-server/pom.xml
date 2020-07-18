@@ -3,39 +3,23 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-
-    <artifactId>service-user-server</artifactId>
+    <artifactId>service-order-server</artifactId>
     <packaging>jar</packaging>
-    <name>service-user-server</name>
+    <name>service-order-server</name>
 
     <parent>
         <groupId>com.kiritor.hshop</groupId>
-        <artifactId>service-user</artifactId>
+        <artifactId>service-order</artifactId>
         <relativePath>../</relativePath>
         <version>1.0.0-RELEASE</version>
     </parent>
-
     <dependencies>
-
-        <!-- service-user-common -->
-        <dependency>
-            <groupId>com.kiritor.hshop</groupId>
-            <artifactId>service-user-common</artifactId>
-            <version>1.0.0-RELEASE</version>
-        </dependency>
-
-        <!-- service-order-common -->
         <dependency>
             <groupId>com.kiritor.hshop</groupId>
             <artifactId>service-order-common</artifactId>
             <version>1.0.0-RELEASE</version>
         </dependency>
-        <!-- service-order-client -->
-        <dependency>
-            <groupId>com.kiritor.hshop</groupId>
-            <artifactId>service-order-client</artifactId>
-            <version>1.0.0-RELEASE</version>
-        </dependency>
+
         <!-- eureka、feign -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
@@ -75,7 +59,6 @@
             <artifactId>javax.ws.rs-api</artifactId>
             <version>2.0</version>
         </dependency>
-
     </dependencies>
 
     <build>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration scan="true" scanPeriod="60 seconds" debug="false">
+    <contextName>backend-hshop</contextName>
+    <timestamp key="bySecond" datePattern="yyyyMMdd'T'HHmmss"/>
+
+    <springProperty scope="context" name="springAppName"
+                    source="spring.application.name" />
+
+    <!-- 定义日志文件内容格式 -->
+    <property name="FILE_LOG_PATTERN"
+              value="===%d{yyyy-MM-dd HH:mm:ss.SSS} %logger Line:%-3L - %msg%n"/>
+
+    <!-- 应用日志路径 -->
+    <springProperty scope="context" name="applicationlogPath" source="endpoints.logfolder.folderPath"/>
+
+
+
+    <conversionRule conversionWord="clr" converterClass="org.springframework.boot.logging.logback.ColorConverter"/>
+    <conversionRule conversionWord="wex" converterClass="org.springframework.boot.logging.logback.WhitespaceThrowableProxyConverter"/>
+    <conversionRule conversionWord="wEx" converterClass="org.springframework.boot.logging.logback.ExtendedWhitespaceThrowableProxyConverter"/>
+
+
+    <include resource="org/springframework/boot/logging/logback/defaults.xml" />
+    <include resource="org/springframework/boot/logging/logback/console-appender.xml"/>
+    <jmxConfigurator/>
+
+    <substitutionProperty name="log.pattern" value="%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(%5p) %clr(---){faint} %clr(%-80.80logger{79}){cyan} %clr(:){faint} %m%n%wEx"/>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>1-%d{yyyy-MM-dd HH:mm:ss} %contextName [%thread] %-5level %logger - %msg%n</pattern>
+            <charset>utf-8</charset>
+        </encoder>
+        <!--
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>${log.pattern}</pattern>
+        </encoder>
+        -->
+    </appender>
+
+    <!-- This one is time based log appender, we will use it -->
+    <appender name="FILE_TIME_BASED" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${applicationlogPath}/application.%d{yyyy-MM-dd}.log</fileNamePattern>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>${FILE_LOG_PATTERN}</pattern>
+            <charset>utf-8</charset>
+        </encoder>
+    </appender>
+
+
+    <!-- 格式化日志输出配置 -->
+    <!--
+    <appender name="SYSTEM_LOG"
+              class="com.cisdi.farmer.common.logback.appender.SystemLogAppender">
+    </appender>
+    -->
+
+
+    <!-- 多环境日志输出 -->
+    <!-- 本地环境 -->
+    <springProfile name="local">
+        <root level="INFO">
+             <appender-ref ref="STDOUT" />
+        </root>
+    </springProfile>
+    <!-- 生产环境logstash -->
+    <springProfile name="prod">
+        <root level="INFO">
+            <appender-ref ref="SYSTEM_LOG" />
+        </root>
+    </springProfile>
+
+</configuration>

@@ -2,7 +2,7 @@
  * Copyright (C), 2014-2020, xx有限公司
  * FileName: FeignConfig
  */
-package com.kiritor.hshop.serviceuser.client.config;
+package com.kiritor.hshop.serviceorder.client.config;
 
 import feign.Retryer;
 import lombok.extern.slf4j.Slf4j;

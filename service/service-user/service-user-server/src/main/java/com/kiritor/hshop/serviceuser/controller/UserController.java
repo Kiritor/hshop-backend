@@ -6,6 +6,7 @@ import com.kiritor.hshop.common.enums.ResultCode;
 import com.kiritor.hshop.serviceuser.model.User;
 import com.kiritor.hshop.serviceuser.security.utils.PassToken;
 import com.kiritor.hshop.serviceuser.service.UserService;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,18 +22,37 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.annotation.Resource;
 import java.util.Base64;
 
+
+/**
+ * @Class 用户服务
+ * @Description
+ * @Author 子梁
+ * @Date 2020/7/10
+ * @Verson 1.0.0
+ *
+ */
+
 @RestController
 @RequestMapping("v1/users")
+@EnableDiscoveryClient
 public class UserController extends BaseController {
     @Resource
     UserService userService;
 
+
+    /**
+     * 根据用户id得到用户信息
+     * @param id
+     * @return
+     */
     @GetMapping("/{id}")
     @ResponseBody
     public ResultBody getUserInfo(@PathVariable(value = "id") Integer id) {
         User user = userService.getUserById(id);
         return ResultBody.ok(ResultCode.SUCCESS,user);
     }
+
+
 
     @GetMapping("/hello")
     @PassToken(required = true)

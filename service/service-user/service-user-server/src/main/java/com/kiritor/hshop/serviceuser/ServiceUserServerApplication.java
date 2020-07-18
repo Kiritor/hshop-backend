@@ -5,7 +5,8 @@ import com.kiritor.hshop.serviceuser.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -23,7 +24,9 @@ import java.util.Map;
 
 @SpringBootApplication(scanBasePackages = {"com.kiritor.hshop.serviceuser"})
 @RestController
-@EnableEurekaClient
+@EnableDiscoveryClient
+@EnableFeignClients(basePackages = { "com.kiritor.hshop.serviceorder.client"})
+
 public class ServiceUserServerApplication {
 
 	@Autowired
