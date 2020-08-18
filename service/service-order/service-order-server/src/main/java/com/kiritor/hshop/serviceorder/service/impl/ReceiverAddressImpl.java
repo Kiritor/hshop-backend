@@ -24,6 +24,7 @@ import java.util.List;
 @Service
 public class ReceiverAddressImpl implements ReceiverAddressService {
 
+
     @Autowired
     private ReceiverAddressDao receiverAddressDao;
     @Override
@@ -34,5 +35,32 @@ public class ReceiverAddressImpl implements ReceiverAddressService {
     @Override
     public List<ReceiverAddress> getAddressListByUserId(Integer userId) {
         return receiverAddressDao.getAddressListByUserId(userId);
+    }
+
+    @Override
+    public Integer addReceiverAddress(ReceiverAddress address) {
+        if(address.getIsDefault()==true){
+            receiverAddressDao.updateAddressUnDefault(address.getUserId());
+        }
+        return receiverAddressDao.insert(address);
+    }
+
+    @Override
+    public Integer updateReceiverAddress(ReceiverAddress address) {
+        if(address.getIsDefault()==true){
+            receiverAddressDao.updateAddressUnDefault(address.getUserId());
+        }
+        return receiverAddressDao.updateById(address);
+    }
+
+    @Override
+    public Integer setDefaultAddress(ReceiverAddress address) {
+        receiverAddressDao.updateAddressUnDefault(address.getUserId());
+        return receiverAddressDao.updateById(address);
+    }
+
+    @Override
+    public Integer deleteReceiverAddress(String id) {
+        return receiverAddressDao.deleteById(id);
     }
 }

@@ -46,7 +46,7 @@ public class ReceiverAddress implements Serializable {
     @TableField("address")
     private String address;
 
-    @TableField("isDefault")
+    @TableField("is_default")
     private Boolean isDefault;
 
 

@@ -9,3 +9,6 @@ logging:
     com.kiritor.hshop: debug
   project:
     application: hshop
+
+swagger:
+  enable: true

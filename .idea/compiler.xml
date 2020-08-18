@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="common" />
+        <module name="server-eureka" />
+        <module name="service-order-client" />
+        <module name="service-order-common" />
+        <module name="service-order-server" />
+        <module name="service-user-client" />
+        <module name="service-user-common" />
+        <module name="service-user-server" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="api" target="1.8" />
+      <module name="common" target="1.8" />
+      <module name="demo" target="1.8" />
+      <module name="hshop" target="1.8" />
+      <module name="hshop-backend" target="1.8" />
+      <module name="server-eureka" target="1.8" />
+      <module name="service-order" target="1.8" />
+      <module name="service-order-client" target="1.8" />
+      <module name="service-order-common" target="1.8" />
+      <module name="service-order-server" target="1.8" />
+      <module name="service-user" target="1.8" />
+      <module name="service-user-client" target="1.8" />
+      <module name="service-user-common" target="1.8" />
+      <module name="service-user-server" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

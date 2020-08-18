@@ -4,7 +4,7 @@
  */
 package com.kiritor.hshop.serviceuser.security.Interceptor;
 
-import com.kiritor.hshop.serviceuser.security.utils.JwtUtils;
+import com.kiritor.hshop.common.utils.JwtUtils;
 import com.kiritor.hshop.serviceuser.security.utils.PassToken;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;

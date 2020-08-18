@@ -5,21 +5,28 @@
         <result property="id" column="id" jdbcType="INTEGER"/>
         <result property="userId" column="user_id" jdbcType="INTEGER"/>
         <result property="address" column="address" jdbcType="VARCHAR"/>
-        <result property="receiver" column="receiver" jdbcType="VARCHAR" />
-        <result property="receiverPhone" column="receiver_phone" jdbcType="VARCHAR" />
-        <result property="isDefault" column="is_default" jdbcType="INTEGER" />
+        <result property="receiver" column="receiver" jdbcType="VARCHAR"/>
+        <result property="receiverPhone" column="receiver_phone" jdbcType="VARCHAR"/>
+        <result property="isDefault" column="is_default" jdbcType="INTEGER"/>
     </resultMap>
 
 
+    <!-- 根据用户id得到收货地址 -->
     <select id="getAddressListByUserId" parameterType="Integer" resultMap="AddressMap">
           <![CDATA[
+
             SELECT
                *
             FROM receiver_address
             where user_id =#{userId}
-          ]]>
+            order by is_default desc
+
+        ]]>
     </select>
 
-
+    <!-- 根据用户id取消默认地址配置 -->
+    <update id="updateAddressUnDefault" parameterType="Integer">
+        update receiver_address set is_default = 0 where user_id = #{userId}
+    </update>
 
 </mapper>

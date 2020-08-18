@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" native2AsciiForPropertiesFiles="true" defaultCharsetForPropertiesFiles="UTF-8">
+    <file url="file://$USER_HOME$/Documents/Desktop Groups/私活/code/walter-api" charset="UTF-8" />
+    <file url="file://$USER_HOME$/Downloads/java-workspace/Spring Boot 集成 Spring Security/spring_security_02" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/common" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/servers" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/servers/server-eureka" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/service/service-order" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/service/service-order/service-order-client" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/service/service-order/service-order-common" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/service/service-order/service-order-server" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/service/service-user" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/service/service-user/service-user-client" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/service/service-user/service-user-common" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/service/service-user/service-user-server" charset="UTF-8" />
+    <file url="PROJECT" charset="UTF-8" />
+  </component>
+</project>

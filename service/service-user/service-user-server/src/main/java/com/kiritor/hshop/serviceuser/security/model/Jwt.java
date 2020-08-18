@@ -4,7 +4,7 @@
  */
 package com.kiritor.hshop.serviceuser.security.model;
 
-import com.kiritor.hshop.serviceuser.security.utils.JwtUtils;
+import com.kiritor.hshop.common.utils.JwtUtils;
 import lombok.Data;
 
 /**

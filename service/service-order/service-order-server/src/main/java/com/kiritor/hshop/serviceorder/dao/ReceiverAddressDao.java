@@ -27,5 +27,10 @@ public interface ReceiverAddressDao extends BaseMapper<ReceiverAddress> {
      */
     List<ReceiverAddress> getAddressListByUserId(Integer userId);
 
-
+    /**
+     * 清空用户的默认地址updateAddressUnDefaultupdateAddressUnDefault
+     * @param userId
+     * @return
+     */
+    Integer updateAddressUnDefault(Integer userId);
 }
